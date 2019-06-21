@@ -41,16 +41,8 @@
   }
 function observerElement(element,option,callback){
 var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
- 
-
-
-
   var mutationObserver = new MutationObserver(callback);
-
-  
-
   mutationObserver.observe(nodeRoot, option);
-
 }
   var option = {
     'childList' : true,

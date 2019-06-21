@@ -2,5 +2,6 @@ dist
 node_modules
 lib
 app/views/utils/highlight.min.js
+app/views/utils/mermaid/mermaid.js
 out
 releases

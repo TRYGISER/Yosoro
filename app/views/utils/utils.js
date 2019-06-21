@@ -16,12 +16,12 @@ renderer.listitem = function (text) {
 renderer.checkbox = function (checked) {
   return `<input class="task-list-item-checkbox" ${checked ? 'checked ' : ''}disabled type="checkbox" /> `;
 };
-// renderer.code = function (code, language) {
-//   if (code.match(/^sequenceDiagram/) || code.match(/^graph/)) {
-//     return `<div class="mermaid">${code}</div>`;
-//   }
-//   return `<pre><code class="language-${language}>${code}</code></pre>`;
-// };
+renderer.code = function (code, language) {
+  if (language === 'mermaid') {
+    return `<div class="mermaid">${code}</div>`;
+  }
+  return `<pre><code class="language-${language}">${code}</code></pre>`;
+};
 marked.setOptions({
   renderer,
   gfm: true,
