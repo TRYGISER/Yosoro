@@ -1,4 +1,5 @@
 {
+  "compact": false,
   "presets": [
     ["@babel/preset-env", {
       "targets": {
@@ -16,13 +17,13 @@
             "esmodules": false,
           }
         }]
-			]
+      ]
     },
     "renderer": {
       "presets": [
         ["@babel/preset-env", {
           "targets": {
-           "chrome": 69,
+            "chrome": 69,
             "esmodules": false
           },
           "loose": true
@@ -31,9 +32,13 @@
         "@babel/preset-flow"
       ],
       "plugins": [
-				"@babel/plugin-transform-async-to-generator",
-				["@babel/plugin-proposal-decorators", { "legacy": true }],
-				["@babel/plugin-proposal-class-properties", { "loose": true }],
+        "@babel/plugin-transform-async-to-generator",
+        ["@babel/plugin-proposal-decorators", {
+          "legacy": true
+        }],
+        ["@babel/plugin-proposal-class-properties", {
+          "loose": true
+        }],
         ["import", {
           "libraryName": "antd",
           "style": "css"

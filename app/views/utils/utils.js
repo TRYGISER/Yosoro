@@ -1,8 +1,11 @@
-import { message } from 'antd';
+import {
+  message,
+} from 'antd';
+
 import marked from './marked/marked';
 
-const renderer = new marked.Renderer();
 
+const renderer = new marked.Renderer();
 renderer.listitem = function (text) {
   if (/^\s*<input class="task-list-item-checkbox"/.test(text)) {
     return `<li class="task-list-li">${text}</li>`;
@@ -13,7 +16,12 @@ renderer.listitem = function (text) {
 renderer.checkbox = function (checked) {
   return `<input class="task-list-item-checkbox" ${checked ? 'checked ' : ''}disabled type="checkbox" /> `;
 };
-
+// renderer.code = function (code, language) {
+//   if (code.match(/^sequenceDiagram/) || code.match(/^graph/)) {
+//     return `<div class="mermaid">${code}</div>`;
+//   }
+//   return `<pre><code class="language-${language}>${code}</code></pre>`;
+// };
 marked.setOptions({
   renderer,
   gfm: true,
@@ -179,8 +187,8 @@ export function debounce(fn, delay = 100) {
  */
 export function getDisplayName(WrappedComponent) {
   return WrappedComponent.displayName ||
-         WrappedComponent.name ||
-         'Component';
+        WrappedComponent.name ||
+        'Component';
 }
 
 /**
@@ -192,7 +200,15 @@ export function getWebviewPreJSPath() {
   }
   return './webview/webview-pre.js';
 }
-
+/**
+ * @description 获取mermaid插入js路径
+ */
+export function getMermaidJSPath() {
+  if (process.env.NODE_ENV === 'development') {
+    return '../webview/mermaid/mermaid.js';
+  }
+  return '../webview/mermaid/mermaid.js';
+}
 /**
  * @description blob to base64
  */

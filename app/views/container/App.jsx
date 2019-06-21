@@ -41,6 +41,7 @@ import 'Assets/scss/theme/light.scss';
 import 'Assets/scss/theme/dark.scss';
 import 'Assets/scss/scrollbar.css';
 
+
 const { shell } = remote;
 
 function mapStateToProps(state) {

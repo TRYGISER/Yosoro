@@ -22,6 +22,21 @@
         "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
       },
       "args" : ["-r", "babel-register", "./app/main/"]
-    }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "protocol": "inspector",
+      "name": "Jest Debug",
+      "program": "${workspaceRoot}/node_modules/jest/bin/jest",
+      "stopOnEntry": false,
+      "args": ["--runInBand", "--env=jsdom", "./test/views/utils.test.js"],
+      "runtimeArgs": [
+          "--inspect-brk"
+       ],
+       "cwd": "${workspaceRoot}",
+       "sourceMaps": true,
+       "console": "integratedTerminal"
+  }
   ]
 }

@@ -24,10 +24,14 @@ import PDF from './pdf';
 import { editorMode } from './config/shortcuts.json';
 
 export function eventListener(menus) {
-  const { explorerMenu, exploereFileMenu, projectItemMenu,
-    fileItemMenu } = menus;
+  const {
+    explorerMenu,
+    exploereFileMenu,
+    projectItemMenu,
+    fileItemMenu,
+  } = menus;
 
-  // 监听Explorer导航右键事件
+    // 监听Explorer导航右键事件
   ipcMain.on('show-context-menu-explorer', (event) => {
     const win = BrowserWindow.fromWebContents(event.sender);
     explorerMenu.popup(win);
@@ -490,9 +494,9 @@ export function eventListener(menus) {
   });
 
   /**
-   * 导出笔记本
-   * 暂时只遍历一层目录
-   */
+     * 导出笔记本
+     * 暂时只遍历一层目录
+     */
   ipcMain.on('export-notebook', async (event, args) => {
     const { notebook, type } = args;
     try {

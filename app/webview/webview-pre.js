@@ -78,9 +78,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 渲染预览页面
   ipcRenderer.on('wv-render-html', (event, args) => {
-    let { html, editorMode } = args;
-    const { theme, platform } = args;
-    const { fontSize } = args;
+    let {
+      html,
+      editorMode,
+    } = args;
+    const {
+      theme,
+      platform,
+    } = args;
+    const {
+      fontSize,
+    } = args;
     // 设置字体大小
     setFontSize(fontSize);
     html = html || '';
@@ -103,7 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   ipcRenderer.on('scroll-target', (event, data) => {
-    const { text, depth } = data;
+    const {
+      text,
+      depth,
+    } = data;
     const tagName = `h${depth}`;
     const headers = document.getElementsByTagName(tagName);
     let scrollTarget;

@@ -4,15 +4,20 @@ import autobind from 'autobind-decorator';
 import { ipcRenderer, remote } from 'electron';
 import classNames from 'classnames';
 import { withTheme, withPlatform } from 'Components/HOC/context';
-import { getWebviewPreJSPath } from 'Utils/utils';
+import { getMermaidJSPath, getWebviewPreJSPath } from 'Utils/utils';
 import LoadingImg from 'Assets/images/loading.svg';
+import { debug } from 'util';
 import { eventTOC } from '../../events/eventDispatch';
 
 import '../../assets/scss/preview.scss';
 
+
 const isDEV = process.env.NODE_ENV === 'development';
 
 const preJSPath = getWebviewPreJSPath();
+const mermaidJSPath = getMermaidJSPath();
+debug.log(mermaidJSPath);
+
 
 const webviewPath = ipcRenderer.sendSync('get-webview-path');
 
